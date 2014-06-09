@@ -1,3 +1,7 @@
+//read write score to file
+//fix 2 by 2 ARRAYS
+
+
 /* 
  * File:   main.cpp
  * Author: Christopher Kooyman
@@ -8,9 +12,11 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 //Global Constants
 const int COL=4;
+const int ROW=4;
 //Function Prototypes
 int rannum();
 //Returns random number
@@ -29,7 +35,6 @@ int main(int argc, char** argv) {
     srand(time(NULL));
     //declare variables
     int newnum=rannum();
-    const int ROW=4;
     //2 by 2 function 
     int grid[ROW][COL];
     //call functions
