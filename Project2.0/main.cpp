@@ -76,7 +76,7 @@ void game(int grid[][COL]){
                         grid[row][3]=0;
                     }
                 }
-                else if(grid[row][1]==grid[row][2]&&grid[row][1]!=0){
+                 if(grid[row][1]==grid[row][2]&&grid[row][1]!=0){
                     grid[row][1]+=grid[row][2];
                     grid[row][2]=0;
                     if(grid[row][3]!=0){
@@ -84,21 +84,21 @@ void game(int grid[][COL]){
                         grid[row][3]=0;
                     }
                 }
-                else if(grid[row][2]==grid[row][3]&&grid[row][2]!=0){
+                 if(grid[row][2]==grid[row][3]&&grid[row][2]!=0){
                     grid[row][2]+=grid[row][3];
                     grid[row][3]=0;
                 }
-                else if(grid[row][0]==grid[row][2]&&grid[row][0]!=0&&grid[row][1]==0){
+                 if(grid[row][0]==grid[row][2]&&grid[row][0]!=0&&grid[row][1]==0){
                     grid[row][0]+=grid[row][2];
                     grid[row][2]=0;
                     grid[row][1]=grid[row][3];
                     grid[row][3]=0;
                 }
-                else if(grid[row][0]==grid[row][3]&&grid[row][0]!=0&&grid[row][1]==0&&grid[row][2]==0){
+                 if(grid[row][0]==grid[row][3]&&grid[row][0]!=0&&grid[row][1]==0&&grid[row][2]==0){
                     grid[row][0]+=grid[row][3];
                     grid[row][3]=0;
                 }
-                else if(grid[row][1]==grid[row][3]&&grid[row][1]!=0&grid[row][2]==0){
+                 if(grid[row][1]==grid[row][3]&&grid[row][1]!=0&grid[row][2]==0){
                     grid[row][1]+=grid[row][3];
                     grid[row][3]=0;
                     if(grid[row][0]==0){
@@ -106,7 +106,7 @@ void game(int grid[][COL]){
                         grid[row][1]=0;
                     }
                 }
-                else if(grid[row][0]==0){
+                 if(grid[row][0]==0){
                     if(grid[row][1]!=0){
                         grid[row][0]=grid[row][1];
                         grid[row][1]=0;
@@ -136,7 +136,7 @@ void game(int grid[][COL]){
                         grid[row][3]=0;
                     }
                 }
-                else if(grid[row][1]==0){
+                 if(grid[row][1]==0){
                     if(grid[row][2]!=0){
                         grid[row][1]=grid[row][2];
                         grid[row][2]=0;
@@ -175,7 +175,7 @@ void game(int grid[][COL]){
                             grid[3][cols]=0;
                         }
                     }
-                    else if(grid[1][cols]==grid[2][cols]&&grid[1][cols]!=0){
+                     if(grid[1][cols]==grid[2][cols]&&grid[1][cols]!=0){
                         grid[1][cols]+=grid[2][cols];
                         grid[2][cols]=0;
                         if(grid[3][cols]!=0){
@@ -183,21 +183,21 @@ void game(int grid[][COL]){
                             grid[3][cols]=0;
                         }
                     }
-                    else if(grid[2][cols]==grid[3][cols]&&grid[2][cols]!=0){
+                     if(grid[2][cols]==grid[3][cols]&&grid[2][cols]!=0){
                         grid[2][cols]+=grid[3][cols];
                         grid[3][cols]=0;
                     }
-                    else if(grid[0][cols]==grid[2][cols]&&grid[0][cols]!=0&&grid[1][cols]==0){
+                     if(grid[0][cols]==grid[2][cols]&&grid[0][cols]!=0&&grid[1][cols]==0){
                         grid[0][cols]+=grid[2][cols];
                         grid[2][cols]=0;
                         grid[1][cols]=grid[3][cols];
                         grid[3][cols]=0;
                     }
-                    else if(grid[0][cols]==grid[3][cols]&&grid[0][cols]!=0&&grid[1][cols]==0&&grid[2][cols]==0){
+                     if(grid[0][cols]==grid[3][cols]&&grid[0][cols]!=0&&grid[1][cols]==0&&grid[2][cols]==0){
                         grid[0][cols]+=grid[3][cols];
                         grid[3][cols]=0;
                     }
-                    else if(grid[1][cols]==grid[3][cols]&&grid[1][cols]!=0&grid[2][cols]==0){
+                     if(grid[1][cols]==grid[3][cols]&&grid[1][cols]!=0&grid[2][cols]==0){
                         grid[1][cols]+=grid[3][cols];
                         grid[3][cols]=0;
                         if(grid[0][cols]==0){
@@ -205,7 +205,7 @@ void game(int grid[][COL]){
                             grid[1][cols]=0;
                         }
                     }
-                    else if(grid[0][cols]==0){
+                     if(grid[0][cols]==0){
                         if(grid[1][cols]!=0){
                             grid[0][cols]=grid[1][cols];
                             grid[1][cols]=0;
@@ -235,7 +235,7 @@ void game(int grid[][COL]){
                             grid[3][cols]=0;
                         }
                     }
-                    else if(grid[1][cols]==0){
+                     if(grid[1][cols]==0){
                         if(grid[2][cols]!=0){
                             grid[1][cols]=grid[2][cols];
                             grid[3][cols]=0;
@@ -275,7 +275,7 @@ void game(int grid[][COL]){
                     grid[row][0]=0;
                 }
             }
-            else if(grid[row][2]==grid[row][1]&&grid[row][2]!=0){
+             if(grid[row][2]==grid[row][1]&&grid[row][2]!=0){
                 grid[row][2]+=grid[row][1];
                 grid[row][1]=0;
                 if(grid[row][0]!=0){
@@ -283,21 +283,21 @@ void game(int grid[][COL]){
                     grid[row][0]=0;
                 }
             }
-            else if(grid[row][1]==grid[row][0]&&grid[row][1]!=0){
+             if(grid[row][1]==grid[row][0]&&grid[row][1]!=0){
                 grid[row][1]+=grid[row][0];
                 grid[row][0]=0;
             }
-            else if(grid[row][3]==grid[row][1]&&grid[row][3]!=0&&grid[row][2]==0){
+             if(grid[row][3]==grid[row][1]&&grid[row][3]!=0&&grid[row][2]==0){
                 grid[row][3]+=grid[row][1];
                 grid[row][1]=0;
                 grid[row][2]=grid[row][0];
                 grid[row][0]=0;
             }
-            else if(grid[row][3]==grid[row][0]&&grid[row][3]!=0&&grid[row][2]==0&&grid[row][1]==0){
+             if(grid[row][3]==grid[row][0]&&grid[row][3]!=0&&grid[row][2]==0&&grid[row][1]==0){
                 grid[row][3]+=grid[row][0];
                 grid[row][0]=0;
             }
-            else if(grid[row][2]==grid[row][0]&&grid[row][2]!=0&grid[row][1]==0){
+             if(grid[row][2]==grid[row][0]&&grid[row][2]!=0&grid[row][1]==0){
                 grid[row][2]+=grid[row][0];
                 grid[row][0]=0;
                 if(grid[row][3]==0){
@@ -305,7 +305,7 @@ void game(int grid[][COL]){
                     grid[row][2]=0;
                 }
             }
-            else if(grid[row][3]==0){
+             if(grid[row][3]==0){
                 if(grid[row][2]!=0){
                     grid[row][3]=grid[row][2];
                     grid[row][2]=0;
@@ -335,7 +335,7 @@ void game(int grid[][COL]){
                     grid[row][0]=0;
                 }
             }
-            else if(grid[row][2]==0){
+             if(grid[row][2]==0){
                 if(grid[row][1]!=0){
                     grid[row][2]=grid[row][1];
                     grid[row][1]=0;
@@ -375,7 +375,7 @@ void game(int grid[][COL]){
                     grid[0][cols]=0;
                 }
             }
-            else if(grid[2][cols]==grid[1][cols]&&grid[2][cols]!=0){
+             if(grid[2][cols]==grid[1][cols]&&grid[2][cols]!=0){
                 grid[2][cols]+=grid[1][cols];
                 grid[1][cols]=0;
                 if(grid[0][cols]!=0){
@@ -383,21 +383,21 @@ void game(int grid[][COL]){
                     grid[0][cols]=0;
                 }
             }
-            else if(grid[1][cols]==grid[0][cols]&&grid[1][cols]!=0){
+             if(grid[1][cols]==grid[0][cols]&&grid[1][cols]!=0){
                 grid[1][cols]+=grid[0][cols];
                 grid[0][cols]=0;
             }
-            else if(grid[3][cols]==grid[1][cols]&&grid[3][cols]!=0&&grid[2][cols]==0){
+             if(grid[3][cols]==grid[1][cols]&&grid[3][cols]!=0&&grid[2][cols]==0){
                 grid[3][cols]+=grid[1][cols];
                 grid[1][cols]=0;
                 grid[2][cols]=grid[0][cols];
                 grid[0][cols]=0;
             }
-            else if(grid[3][cols]==grid[0][cols]&&grid[3][cols]!=0&&grid[2][cols]==0&&grid[1][cols]==0){
+             if(grid[3][cols]==grid[0][cols]&&grid[3][cols]!=0&&grid[2][cols]==0&&grid[1][cols]==0){
                 grid[3][cols]+=grid[0][cols];
                 grid[0][cols]=0;
             }
-            else if(grid[2][cols]==grid[0][cols]&&grid[2][cols]!=0&grid[1][cols]==0){
+             if(grid[2][cols]==grid[0][cols]&&grid[2][cols]!=0&grid[1][cols]==0){
                 grid[2][cols]+=grid[0][cols];
                 grid[0][cols]=0;
                 if(grid[3][cols]==0){
@@ -405,7 +405,7 @@ void game(int grid[][COL]){
                     grid[2][cols]=0;
                 }
             }
-            else if(grid[3][cols]==0){
+             if(grid[3][cols]==0){
                 if(grid[2][cols]!=0){
                     grid[3][cols]=grid[2][cols];
                     grid[2][cols]=0;
@@ -435,7 +435,7 @@ void game(int grid[][COL]){
                     grid[0][cols]=0;
                 }
             }
-            else if(grid[2][cols]==0){
+             if(grid[2][cols]==0){
                 if(grid[1][cols]!=0){
                     grid[2][cols]=grid[1][cols];
                     grid[0][cols]=0;
