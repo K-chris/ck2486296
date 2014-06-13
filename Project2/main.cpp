@@ -20,12 +20,12 @@ const int ROW=4;
 //Function Prototypes
 int rannum();
 //Returns random number
-void brdDsn(int [][COL]);
+void brdDsn(int [ROW][COL],int);
 //creates board design 
-void ini(int [][COL]);
+void ini(int [ROW][COL]);
 //initiate function to zero then set two points
-void newnum(int[][COL]);
-void game(int [][COL]);
+void newnum(int[ROW][COL]);
+void game(int [ROW][COL]);
 //Main game function 
 
 //execution Begins Here!
@@ -37,6 +37,8 @@ int main(int argc, char** argv) {
     int newnum=rannum();
     //2 by 2 function 
     int grid[ROW][COL];
+    string name;
+    int scorbrd=0;
     //call functions
     cout<<"Welcome to 2048 a number game"<<endl;
     cout<<"the goal is to get to the number 2048 by combining like numbers ie 2 and 2"<<endl;
@@ -45,9 +47,10 @@ int main(int argc, char** argv) {
     cout<<"A for left"<<endl;
     cout<<"S for down"<<endl;
     cout<<"and D for right"<<endl;
-    
+    cout<<"To Quit press Q"<<endl;
+    cout<<"Enter in your first name: ";
+    cin>>name;
     ini(grid);
-    brdDsn(grid);
     game(grid);
     //exit stage right
     return 0;
@@ -55,23 +58,30 @@ int main(int argc, char** argv) {
     
 }
 void game(int grid[][COL]){
+    int scorbrd=0;
+    brdDsn(grid,scorbrd);
     bool usrinp=true;
     while(usrinp==true){
         char keyprs;
         cin>>keyprs;
-        while(!(keyprs=='w'||keyprs=='W'||keyprs=='s'||keyprs=='S'||keyprs=='a'||keyprs=='A'||keyprs=='d'||keyprs=='D')){
+        while(!(keyprs=='w'||keyprs=='W'||keyprs=='s'||keyprs=='S'||keyprs=='a'||keyprs=='A'||keyprs=='d'||keyprs=='D'||keyprs=='q'||keyprs=='Q')){
             cout<<"try again. W,A,S,D"<<endl;
             cin>>keyprs;
         }
-        if(keyprs=='w'||keyprs=='W'){
+        if(keyprs=='q'||keyprs=='Q'){
+            usrinp=false;
+        }
+        else if(keyprs=='w'||keyprs=='W'){
             //colum 1 2 3 4 up logic 
             for(int row=0;row<4;row++){
                 if(grid[row][0]==grid[row][1]&&grid[row][0]!=0){
                     grid[row][0]+=grid[row][1];
+                    scorbrd+=grid[row][0];
                     grid[row][1]=0;   
                     if(grid[row][2]==grid[row][3]&&grid[row][2]!=0){
                         grid[row][2]+=grid[row][3];
                         grid[row][1]=grid[row][2];
+                        scorbrd+=grid[row][2];
                         grid[row][2]=0;
                         grid[row][3]=0;
                     }
@@ -83,6 +93,7 @@ void game(int grid[][COL]){
                 }
                  if(grid[row][1]==grid[row][2]&&grid[row][1]!=0){
                     grid[row][1]+=grid[row][2];
+                    scorbrd+=grid[row][1];
                     grid[row][2]=0;
                     if(grid[row][3]!=0){
                         grid[row][2]=grid[row][3];
@@ -91,20 +102,24 @@ void game(int grid[][COL]){
                 }
                  if(grid[row][2]==grid[row][3]&&grid[row][2]!=0){
                     grid[row][2]+=grid[row][3];
+                    scorbrd+=grid[row][2];
                     grid[row][3]=0;
                 }
                  if(grid[row][0]==grid[row][2]&&grid[row][0]!=0&&grid[row][1]==0){
                     grid[row][0]+=grid[row][2];
+                    scorbrd+=grid[row][0];
                     grid[row][2]=0;
                     grid[row][1]=grid[row][3];
                     grid[row][3]=0;
                 }
                  if(grid[row][0]==grid[row][3]&&grid[row][0]!=0&&grid[row][1]==0&&grid[row][2]==0){
                     grid[row][0]+=grid[row][3];
+                    scorbrd+=grid[row][0];
                     grid[row][3]=0;
                 }
                  if(grid[row][1]==grid[row][3]&&grid[row][1]!=0&grid[row][2]==0){
                     grid[row][1]+=grid[row][3];
+                    scorbrd+=grid[row][1];
                     grid[row][3]=0;
                     if(grid[row][0]==0){
                         grid[row][0]=grid[row][1];
@@ -167,9 +182,11 @@ void game(int grid[][COL]){
                     for(int cols=0;cols<4;cols++){
                     if(grid[0][cols]==grid[1][cols]&&grid[0][cols]!=0){
                         grid[0][cols]+=grid[1][cols];
+                        scorbrd+=grid[0][cols];
                         grid[1][cols]=0;   
                         if(grid[2][cols]==grid[3][cols]&&grid[2][cols]!=0){
                             grid[2][cols]+=grid[3][cols];
+                            scorbrd+=grid[2][cols];
                             grid[1][cols]=grid[2][cols];
                             grid[2][cols]=0;
                             grid[3][cols]=0;
@@ -182,6 +199,7 @@ void game(int grid[][COL]){
                     }
                      if(grid[1][cols]==grid[2][cols]&&grid[1][cols]!=0){
                         grid[1][cols]+=grid[2][cols];
+                        scorbrd+=grid[1][cols];
                         grid[2][cols]=0;
                         if(grid[3][cols]!=0){
                             grid[2][cols]=grid[3][cols];
@@ -190,20 +208,24 @@ void game(int grid[][COL]){
                     }
                      if(grid[2][cols]==grid[3][cols]&&grid[2][cols]!=0){
                         grid[2][cols]+=grid[3][cols];
+                        scorbrd+=grid[2][cols];
                         grid[3][cols]=0;
                     }
                      if(grid[0][cols]==grid[2][cols]&&grid[0][cols]!=0&&grid[1][cols]==0){
                         grid[0][cols]+=grid[2][cols];
+                        scorbrd+=grid[0][cols];
                         grid[2][cols]=0;
                         grid[1][cols]=grid[3][cols];
                         grid[3][cols]=0;
                     }
                      if(grid[0][cols]==grid[3][cols]&&grid[0][cols]!=0&&grid[1][cols]==0&&grid[2][cols]==0){
                         grid[0][cols]+=grid[3][cols];
+                        scorbrd+=grid[0][cols];
                         grid[3][cols]=0;
                     }
                      if(grid[1][cols]==grid[3][cols]&&grid[1][cols]!=0&grid[2][cols]==0){
                         grid[1][cols]+=grid[3][cols];
+                        scorbrd+=grid[1][cols];
                         grid[3][cols]=0;
                         if(grid[0][cols]==0){
                             grid[0][cols]=grid[1][cols];
@@ -267,9 +289,11 @@ void game(int grid[][COL]){
             //row 1 colum 4321 down logic 
             if(grid[row][3]==grid[row][2]&&grid[row][3]!=0){
                 grid[row][3]+=grid[row][2];
+                scorbrd+=grid[row][3];
                 grid[row][2]=0;   
                 if(grid[row][1]==grid[row][0]&&grid[row][1]!=0){
                     grid[row][1]+=grid[row][0];
+                    scorbrd+=grid[row][1];
                     grid[row][2]=grid[row][1];
                     grid[row][1]=0;
                     grid[row][0]=0;
@@ -282,6 +306,7 @@ void game(int grid[][COL]){
             }
              if(grid[row][2]==grid[row][1]&&grid[row][2]!=0){
                 grid[row][2]+=grid[row][1];
+                scorbrd+=grid[row][2];
                 grid[row][1]=0;
                 if(grid[row][0]!=0){
                     grid[row][1]=grid[row][0];
@@ -290,10 +315,12 @@ void game(int grid[][COL]){
             }
              if(grid[row][1]==grid[row][0]&&grid[row][1]!=0){
                 grid[row][1]+=grid[row][0];
+                scorbrd+=grid[row][1];
                 grid[row][0]=0;
             }
              if(grid[row][3]==grid[row][1]&&grid[row][3]!=0&&grid[row][2]==0){
                 grid[row][3]+=grid[row][1];
+                scorbrd+=grid[row][3];
                 grid[row][1]=0;
                 grid[row][2]=grid[row][0];
                 grid[row][0]=0;
@@ -304,6 +331,7 @@ void game(int grid[][COL]){
             }
              if(grid[row][2]==grid[row][0]&&grid[row][2]!=0&grid[row][1]==0){
                 grid[row][2]+=grid[row][0];
+                scorbrd+=grid[row][2];
                 grid[row][0]=0;
                 if(grid[row][3]==0){
                     grid[row][3]=grid[row][2];
@@ -367,9 +395,11 @@ void game(int grid[][COL]){
             //D right logic
             if(grid[3][cols]==grid[2][cols]&&grid[3][cols]!=0){
                 grid[3][cols]+=grid[2][cols];
+                scorbrd+=grid[3][cols];
                 grid[2][cols]=0;   
                 if(grid[1][cols]==grid[0][cols]&&grid[1][cols]!=0){
                     grid[1][cols]+=grid[0][cols];
+                    scorbrd+=grid[1][cols];
                     grid[2][cols]=grid[1][cols];
                     grid[1][cols]=0;
                     grid[0][cols]=0;
@@ -382,6 +412,7 @@ void game(int grid[][COL]){
             }
              if(grid[2][cols]==grid[1][cols]&&grid[2][cols]!=0){
                 grid[2][cols]+=grid[1][cols];
+                scorbrd+=grid[2][cols];
                 grid[1][cols]=0;
                 if(grid[0][cols]!=0){
                     grid[1][cols]=grid[0][cols];
@@ -390,20 +421,24 @@ void game(int grid[][COL]){
             }
              if(grid[1][cols]==grid[0][cols]&&grid[1][cols]!=0){
                 grid[1][cols]+=grid[0][cols];
+                scorbrd+=grid[1][cols];
                 grid[0][cols]=0;
             }
              if(grid[3][cols]==grid[1][cols]&&grid[3][cols]!=0&&grid[2][cols]==0){
                 grid[3][cols]+=grid[1][cols];
+                scorbrd+=grid[3][cols];
                 grid[1][cols]=0;
                 grid[2][cols]=grid[0][cols];
                 grid[0][cols]=0;
             }
              if(grid[3][cols]==grid[0][cols]&&grid[3][cols]!=0&&grid[2][cols]==0&&grid[1][cols]==0){
                 grid[3][cols]+=grid[0][cols];
+                scorbrd+=grid[3][cols];
                 grid[0][cols]=0;
             }
              if(grid[2][cols]==grid[0][cols]&&grid[2][cols]!=0&grid[1][cols]==0){
                 grid[2][cols]+=grid[0][cols];
+                scorbrd+=grid[2][cols];
                 grid[0][cols]=0;
                 if(grid[3][cols]==0){
                     grid[3][cols]=grid[2][cols];
@@ -466,7 +501,7 @@ void game(int grid[][COL]){
         for(int format=0;format<30;format++){
              cout<<endl;
          }
-        brdDsn(grid);
+        brdDsn(grid,scorbrd);
     }
 }
 
@@ -515,7 +550,8 @@ int rannum(){
     return n;
 }
 //Board Design 
-void brdDsn(int grid[][COL]){
+void brdDsn(int grid[][COL],int score){
+    cout<<"Current Score : "<<score<<endl;
     cout<<"+----+----+----+----+"<<endl;
     for(int c=0;c<4;c++){
         for(int r=0;r<4;r++){
