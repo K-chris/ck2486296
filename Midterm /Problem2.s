@@ -42,7 +42,7 @@ case_BC:                @this loops until they are the correct package values
     add r4, r4, #11
     sub r5, r5, #1
     sub r1, r1, #1      @this will be our counter
-
+    b case_BC
 case_hour:
 end:
     add sp, sp, #+4
