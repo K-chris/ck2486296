@@ -13,7 +13,7 @@ main:
     push {r4, lr}
 	mov r4, r0
 
-    ldr r0, address_of_message_1
+    ldr r0, address_of_message1
     bl printf
 
     ldr r0, address_of_format
