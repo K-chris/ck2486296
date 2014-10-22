@@ -24,7 +24,7 @@ main:
         add r1, sp, #4
     ldr r1, [r1]
     ldr r2, [sp]
-    cmp r1, 'a'
+    cmp r1, #a
     beq case_packageA
 case_packageA:
     mov r1, #35 
