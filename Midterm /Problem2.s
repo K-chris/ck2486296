@@ -48,8 +48,8 @@ case_charge:
     mul r7, r8,r5      @this is the double fee for going over the hours*2
     mul r6, r8, r4     @this is our extra hourly charge r6 = r4 * 2
     cmp r2,r6
-    blt elseif
-    beq elseif
+    blt case_elseif
+    beq case_elseif
 case_if:
     mov r0, r3
     mul r6,r6,r7
