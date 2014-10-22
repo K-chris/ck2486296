@@ -24,11 +24,19 @@ main:
         add r1, sp, #4
     ldr r1, [r1]
     ldr r2, [sp]
-    cmp r1, #97
-    beq case_packageA
+    cmp r1, #97 or #98
+    beq case_package
+    cmp r1, #99
+    beq case_package
     b end
-case_packageA:
-    mov r1, #35 
+case_package:
+    r3, #30
+    r4, #11
+    r5, #3
+    cmp r1, #97
+    beq case_hour
+
+case_BC:
 
 end:
     add sp, sp, #+4
