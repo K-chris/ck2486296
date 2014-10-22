@@ -24,7 +24,7 @@ main:
         add r1, sp, #4
     ldr r1, [r1]
     ldr r2, [sp]
-    cmp r1, #97 or #98
+    cmp r1, #97, or, #98
     beq case_package
     cmp r1, #99
     beq case_package
