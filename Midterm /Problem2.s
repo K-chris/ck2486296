@@ -24,7 +24,9 @@ main:
         add r1, sp, #4
     ldr r1, [r1]
     ldr r2, [sp]
-    cmp r1, #97, or, #98
+    cmp r1, #97
+    beq case_package
+    cmp r1, #98
     beq case_package
     cmp r1, #99
     beq case_package
@@ -33,11 +35,15 @@ case_package:
     r3, #30
     r4, #11
     r5, #3
+case_BC:                @this loops until they are the correct package values
     cmp r1, #97
     beq case_hour
+    add r3, r3, #5
+    add r4, r4, #11
+    sub r5, r5, #1
+    sub r1, r1, #1      @this will be our counter
 
-case_BC:
-
+case_hour:
 end:
     add sp, sp, #+4
     ldr lr, [sp], #+4
