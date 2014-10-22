@@ -45,7 +45,8 @@ case_BC:                @this loops until they are the correct package values
     b case_BC
 case_charge:
     mov r6, r4
-    mul r6, #2, r6
+    mov r7, #2
+    mul r6, r7, r6
     cmp r2,r6
 
 
