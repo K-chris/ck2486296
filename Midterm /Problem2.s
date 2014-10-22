@@ -1,7 +1,7 @@
 .data
 
 message1: .asciz "Enter in what package you have and"
-format: .asciz "%d %d"
+format: .asciz "%c %d"
 message2: .asciz "how many hours did you used"
 message3: .asciz "the total cost is %d"
 
@@ -24,7 +24,7 @@ main:
         add r1, sp, #4
     ldr r1, [r1]
     ldr r2, [sp]
-    
+
 
 
     add sp, sp, #+4
