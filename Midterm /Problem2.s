@@ -20,11 +20,12 @@ main:
     mov r2, sp
         add r1, r2,#4
     bl scanf
-
+        add r1, sp, #4
 
     add sp, sp, #+4
     ldr lr, [sp], #+4
     bx lr
+
 address_of_message1: .word message1
 address_of_message2: .word message2
 address_of_message3: .word message3
