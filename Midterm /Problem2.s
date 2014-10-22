@@ -44,7 +44,9 @@ case_BC:                @this loops until they are the correct package values
     sub r1, r1, #1      @this will be our counter
     b case_BC
 case_charge:
-    cmp r2,r4#*2
+    mov r6, r4
+    mul r6, r6, #2
+    cmp r2,r6
 
 
 end:
