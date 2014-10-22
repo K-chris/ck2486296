@@ -26,10 +26,11 @@ main:
     ldr r2, [sp]
     cmp r1, #97
     beq case_packageA
+    b end
 case_packageA:
     mov r1, #35 
 
-
+end:
     add sp, sp, #+4
     ldr lr, [sp], #+4
     bx lr
