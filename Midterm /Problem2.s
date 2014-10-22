@@ -22,6 +22,14 @@ main:
     bl scanf
         add r1, sp, #4
     ldr r1, [r1]
+
+    ldr r0, address_of_message2
+    bl printf
+        add r1, r2,#4
+    bl scanf
+        add r1, sp, #4
+    ldr r2, [r1]
+
     add sp, sp, #+4
     ldr lr, [sp], #+4
     bx lr
