@@ -56,7 +56,7 @@ case_if:
     sub r6,r6,r2
     mul r6,r6,r7
     add r0,r0,r6
-    mulr6,r6,r4
+    mul r6,r6,r4
     sub r6,r6,r4
     mul r6,r6,r5
     add r0,r0,r6
