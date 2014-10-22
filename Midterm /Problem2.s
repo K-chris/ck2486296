@@ -1,8 +1,8 @@
 .data
 
-message1: .asciz "what package do you have?:"
-format: .asciz "%d"
-message2: .asciz "How many hours did you use?"
+message1: .asciz "Enter in what package you have and"
+format: .asciz "%d %d"
+message2: .asciz "how many hours did you used"
 message3: .asciz "the total cost is %d"
 
 .text
@@ -15,15 +15,6 @@ main:
 
     ldr r0, address_of_message1
     bl printf
-    ldr r0, address_of_format
-    mov r2, sp
-        add r1, r2,#4
-    bl scanf
-        add r1, sp, #4
-    ldr r1, [r1]
-
-    mov r3, r1
-
     ldr r0, address_of_message2
     bl printf
     ldr r0, address_of_format
@@ -32,7 +23,9 @@ main:
     bl scanf
         add r1, sp, #4
     ldr r1, [r1]
-    mov r2, r3
+    ldr r2, [sp]
+    
+
 
     add sp, sp, #+4
     ldr lr, [sp], #+4
