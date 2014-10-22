@@ -15,7 +15,6 @@ main:
 
     ldr r0, address_of_message1
     bl printf
-
     ldr r0, address_of_format
     mov r2, sp
         add r1, r2,#4
@@ -23,13 +22,17 @@ main:
         add r1, sp, #4
     ldr r1, [r1]
 
+    mov r2, r1
+
     ldr r0, address_of_message2
     bl printf
-
     ldr r0, address_of_format
     mov r2, sp
+        add r1, r2,#4
     bl scanf
-    ldr r2, [r2]
+        add r1, sp, #4
+    ldr r1, [r1]
+
 
     add sp, sp, #+4
     ldr lr, [sp], #+4
