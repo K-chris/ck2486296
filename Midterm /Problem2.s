@@ -17,16 +17,16 @@ return : .word 0
 
 .global main
 main:
-    str lr [sp,#-4]!
-    sub sp, sp, #4
+    push {r4, lr}
+	mov r4, r0
 
-    ldr ro, address_of_message_1
+    ldr r0, address_of_message_1
     bl printf
 
 
     add sp, sp, #+4
     ldr lr, [sp], #+4
-    bc lr
+    bx lr
 address_of_message_1 : .word message_1
 address_of_message_2 : .word message_2
 address_of_message_3 : .word message_3
