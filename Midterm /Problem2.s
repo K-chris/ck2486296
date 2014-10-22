@@ -44,11 +44,23 @@ case_BC:                @this loops until they are the correct package values
     sub r1, r1, #1      @this will be our counter
     b case_BC
 case_charge:
-    mov r6, r4
-    mov r7, #2
-    mul r6, r7, r6
+    mov r8, #2
+    mul r7, r8,r5      @this is the double fee for going over the hours*2
+    mul r6, r8, r4     @this is our extra hourly charge r6 = r4 * 2
     cmp r2,r6
-
+    blt elseif
+    beq elseif
+case_if:
+    mov r0, r3
+    mul r6,r6,r7
+    sub r6,r6,r2
+    mul r6,r6,r7
+    add r0,r0,r6
+    mulr6,r6,r4
+    sub r6,r6,r4
+    mul r6,r6,r5
+    add r0,r0,r6
+case_elseif:
 
 end:
     add sp, sp, #+4
