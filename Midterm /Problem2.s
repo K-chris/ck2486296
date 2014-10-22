@@ -10,8 +10,8 @@ message3: .asciz "the total cost is %d"
 
 .global main
 main:
-    push {r4, lr}
-	mov r4, r0
+    str lr, [sp,#-4]!
+	sub sp, sp, #8
 
     ldr r0, address_of_message1
     bl printf
