@@ -17,10 +17,14 @@ return : .word 0
 
 .global main
 main:
+    str lr, [sp,#-4]!
+    sub sp, sp, #4
 
+    ldr ro, address_of_message_1
+    bl printf
 
-
-
+    ldr lr, [sp], #+4
+    bx lr
 
 address_of_message_1 : .word message_1
 address_of_message_2 : .word message_2
