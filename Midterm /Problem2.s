@@ -32,9 +32,9 @@ main:
     beq case_package
     b end
 case_package:
-    r3, #30
-    r4, #11
-    r5, #3
+    mov r3, #30
+    mov r4, #11
+    mov r5, #3
 case_BC:                @this loops until they are the correct package values
     cmp r1, #97
     beq case_hour
