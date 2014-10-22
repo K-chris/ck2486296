@@ -1,18 +1,11 @@
 .data
-.balign 4
-message_1 : .asciz "what package do you have?:"
-.balign 4
-message_2 : .asciz "How many hours did you use?"
-.balign 4
-message_3 : .asciz "%d divide by %d is %d\n"
-.balign 4
-scan_pattern : .asciz "%d"
-.balign 4
-char_package : .word 0
-.balign 4
-number_hour: .word 0
-.balign 4
-return : .word 0
+
+message1: .asciz "what package do you have?:"
+format: .asciz "%d"
+message2: .asciz "How many hours did you use?"
+message3: .asciz "the total cost is %d"
+
+.text
 
 
 .global main
@@ -23,17 +16,18 @@ main:
     ldr r0, address_of_message_1
     bl printf
 
+    ldr r0, address_of_format
+    mov r2, sp
+        add r1, r2,#4
+    bl scanf
+
 
     add sp, sp, #+4
     ldr lr, [sp], #+4
     bx lr
-address_of_message_1 : .word message_1
-address_of_message_2 : .word message_2
-address_of_message_3 : .word message_3
-address_of_scan_pattern : .word scan_pattern
-address_of_char_package : .word char_package
-address_of_number_hour : .word number_hour
+address_of_message1: .word message1
+address_of_message2: .word message2
+address_of_message3: .word message3
+address_of_format: .word format
 
-.global printf
-.global scanf
 
