@@ -22,8 +22,8 @@ main:
         add r1, r2,#4
     bl scanf
         add r1, sp, #4
-    ldr r1, [r1]
-    ldr r2, [sp]
+    ldr r1, [r1]           @r1 = users package a,b,or c
+    ldr r2, [sp]           @r2 = users hours
     cmp r1, #97
     beq case_package
     cmp r1, #98
@@ -32,18 +32,21 @@ main:
     beq case_package
     b end
 case_package:
-    mov r3, #30
-    mov r4, #11
-    mov r5, #3
+    mov r3, #30         @r3 = monthly price
+    mov r4, #11         @r4 = monthly hours
+    mov r5, #3          @r5 = charge per add hour
 case_BC:                @this loops until they are the correct package values
     cmp r1, #97
-    beq case_hour
+    beq case_charge
     add r3, r3, #5
     add r4, r4, #11
     sub r5, r5, #1
     sub r1, r1, #1      @this will be our counter
     b case_BC
-case_hour:
+case_charge:
+    cmp r2,r4, #*2
+
+
 end:
     add sp, sp, #+4
     ldr lr, [sp], #+4
