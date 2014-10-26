@@ -2,7 +2,7 @@
 message1: .asciz "enter in the hours you have worked and then the pay rate  "
 format: .asciz "%d %d"
 message2: .asciz "You cannot work more than 60 hours, try again  "
-message3: .asciz "your gross pay is $ %d   "
+message3: .asciz "your gross pay is $%d   "
 .text
 
 .global main
@@ -44,5 +44,8 @@ end:
     bx lr
 
 address_of_message1: .word message1
+address_of_message2: .word message2
+
 address_of_message3: .word message3
+
 address_of_format: .word format
