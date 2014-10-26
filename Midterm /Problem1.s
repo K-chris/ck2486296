@@ -1,6 +1,6 @@
 .data
 message1: .asciz "enter in the hours you have worked and then the pay rate"
-format: .asciz "%c %d"
+format: .asciz "%d %d"
 message3: .asciz "your gross pay is $%d   "
 .text
 
