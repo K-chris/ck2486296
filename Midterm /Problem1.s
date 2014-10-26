@@ -20,7 +20,7 @@ main:
     ldr r1, [r1]           @r1 = users hours
     ldr r2, [sp]           @r2 = users rate of pay
     cmp r1, #60
-    bgr case_notlegal
+    bgt case_notlegal
 case_notlegal:
     ldr r0, address_of_message1
     bl printf
