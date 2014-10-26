@@ -70,6 +70,7 @@ case_elseif:
 end:
     mov r1, r0
     ldr r0, address_of_message3
+    ldr r1, [r1]
     bl printf
     add sp, sp, #+4
     ldr lr, [sp], #+4
