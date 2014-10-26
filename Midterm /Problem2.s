@@ -10,7 +10,7 @@ message3: .asciz "the total cost is %d"
 
 .global main
 main:
-    str lr, [sp,#-4]!
+    str lr, [sp,#-8]!
 	sub sp, sp, #8
 
     ldr r0, address_of_message1
@@ -70,7 +70,7 @@ case_elseif:
 end:
     ldr r0, address_of_message3
     bl printf
-    add sp, sp, #+4
+    add sp, sp, #+8
     ldr lr, [sp], #+8
     bx lr
 
