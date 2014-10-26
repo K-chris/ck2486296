@@ -52,9 +52,9 @@ case_charge:
     beq case_elseif
 case_if:
     mov r0, r3
-    sub r6,r6,r2
+    sub r6,r2,r6
     mul r6,r6,r7
-    add r0,r9,r6
+    add r0,r0,r6
     mul r6,r8,r4
     sub r6,r6,r4
     mul r6,r6,r5
