@@ -9,7 +9,7 @@ message3: .asciz "your gross pay is $%d   "
 main:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
- input
+ input:
     ldr r0, address_of_message1
     bl printf
     ldr r0, address_of_format
@@ -20,12 +20,12 @@ main:
     ldr r1, [r1]           @r1 = users hours
     ldr r2, [sp]           @r2 = users rate of pay
     cmp r1, #60
-    bgr case_illegal
-case_illegal:
+    bgr case_notlegal
+case_notlegal:
     ldr r0, address_of_message1
     bl printf
 
-b input
+    b input
 end:
     add sp, sp, #+8
     ldr lr, [sp], #+8
