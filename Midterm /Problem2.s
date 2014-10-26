@@ -68,6 +68,9 @@ case_elseif:
     mul r6, r6, r5
     add r0,r0,r6
 end:
+    mov r1, r0
+    ldr r0, address_of_message3
+    bl printf
     add sp, sp, #+4
     ldr lr, [sp], #+4
     bx lr
