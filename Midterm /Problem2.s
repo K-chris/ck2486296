@@ -11,7 +11,7 @@ message3: .asciz "the total cost is %d"
 .global main
 main:
     str lr, [sp,#-4]
-	sub sp, sp, #8
+	sub sp, sp, #4
 
     ldr r0, address_of_message1
     bl printf
