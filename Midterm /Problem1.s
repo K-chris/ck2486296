@@ -8,13 +8,14 @@ message3: .asciz "your gross pay is $%d   "
 main:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
+    
     ldr r0, address_of_message1
     bl printf
     ldr r0, address_of_format
     mov r2, sp
-    add r1, r2,#4
+        add r1, r2,#4
     bl scanf
-    add r1, sp, #4
+        add r1, sp, #4
     ldr r1, [r1]           @r1 = users package a,b,or c
     ldr r2, [sp]           @r2 = users hours
 
