@@ -1,12 +1,9 @@
 .data
-
 message1: .asciz "Enter in what package you have and"
 format: .asciz "%c %d"
 message2: .asciz " how many hours did you used: "
-message3: .asciz "the total cost is %d"
-
+message3: .asciz "the total cost is %d   "
 .text
-
 
 .global main
 main:
@@ -79,5 +76,3 @@ address_of_message1: .word message1
 address_of_message2: .word message2
 address_of_message3: .word message3
 address_of_format: .word format
-
-
