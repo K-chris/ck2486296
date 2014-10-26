@@ -10,8 +10,8 @@ message3: .asciz "the total cost is %d"
 
 .global main
 main:
-    str lr, [sp,#-4]
-	sub sp, sp, #4
+    str lr, [sp,#-4]!
+	sub sp, sp, #8
 
     ldr r0, address_of_message1
     bl printf
@@ -71,7 +71,7 @@ end:
     ldr r0, address_of_message3
     bl printf
     add sp, sp, #+4
-    ldr lr, [sp], #+4
+    ldr lr, [sp], #+8
     bx lr
 
 address_of_message1: .word message1
