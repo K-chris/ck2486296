@@ -64,7 +64,7 @@ case_elseif:
     cmp r2, r4
     blt end
     beq end
-    sub r6 r2, r4
+    sub r6, r2, r4
     mul r6, r6, r5
     add r0,r0,r6
 end:
