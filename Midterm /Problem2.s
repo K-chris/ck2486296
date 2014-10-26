@@ -3,7 +3,7 @@
 message1: .asciz "Enter in what package you have and"
 format: .asciz "%c %d"
 message2: .asciz " how many hours did you used: "
-message3: .asciz "the total cost is %c"
+message3: .asciz "the total cost is %d"
 
 .text
 
