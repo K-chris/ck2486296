@@ -12,6 +12,7 @@ main:
     ldr r0, address_of_message1
     bl printf
     ldr r0, address_of_format
+    mov r2, sp
     add r1, r2,#4
     bl scanf
     add r1, sp, #4
