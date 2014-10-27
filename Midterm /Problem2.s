@@ -1,6 +1,6 @@
 .data
 message1: .asciz "Enter in what package you have and"
-format: .asciz "%c %d"
+internetform: .asciz "%d %c"
 message2: .asciz " how many hours did you used: \n a)30 dollars a month for 11 hours access \n b)35 dollars a month for 22 hours access \n c)40 dollars a month for 33 hours access"
 message3: .asciz "the total cost is %d   "
 .text
@@ -15,13 +15,13 @@ intrn:
     bl printf
     ldr r0, address_of_message2
     bl printf
-    ldr r0, address_of_format
+    ldr r0, address_of_internetform
     mov r2, sp
         add r1, r2,#4
     bl scanf
         add r1, sp, #4
-    ldr r1, [r1]           @r1 = users package a,b,or c
-    ldr r2, [sp]           @r2 = users hours
+    ldr r2, [r1]           @r1 = users package a,b,or c
+    ldr r1, [sp]           @r2 = users hours
     cmp r1, #97
     beq case_package
     cmp r1, #98
@@ -76,4 +76,4 @@ end:
 address_of_message1: .word message1
 address_of_message2: .word message2
 address_of_message3: .word message3
-address_of_format: .word format
+address_of_internetform: .word internetform
