@@ -7,8 +7,8 @@ message3: .asciz "your gross pay is $%d   "
 
 .text
 
-.global main
-main:
+.global paycheck
+paycheck:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
 

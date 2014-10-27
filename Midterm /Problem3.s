@@ -5,8 +5,8 @@ format: .asciz "%d"
 message2: .asciz " the %d term of the fibonacci is %d "
 .text
 
-.global main
-main:
+.global fibonacci
+fibonacci:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
     ldr r0, address_of_message1
