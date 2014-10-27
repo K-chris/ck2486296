@@ -44,7 +44,7 @@ case_regpay:
 
 case_dblpay:
     mov r4, #2
-    mul r4,r4,r2
+    mul r4,r2,r4
     sub r1,r1,r5
     mul r3,r1,r4
     mul r5,r2,r5
@@ -53,15 +53,15 @@ case_dblpay:
 
 case_trppay:
     mov r4, #3
-    mul r4,r4,r2
+    mul r4,r2,r4
     sub r1,r1,#40
     mul r3,r1,r4
     mov r6,#2
-    mul r6,r6,r5
+    mul r6,r5,r6
     add r3, r3, r6
     mul r6, r5,r2
     add r3, r3, r6
-    b end:
+    b end
 end:
     mov r1,r3
     ldr r0, address_of_message3

@@ -50,11 +50,11 @@ case_charge:
     beq case_elseif
 case_if:
     sub r6,r2,r6
-    mul r6,r6,r7
+    mul r6,r7,r6
     add r0,r0,r6
     mul r6,r8,r4
     sub r6,r6,r4
-    mul r6,r6,r5
+    mul r6,r5,r6
     add r0,r0,r6
     b end
 case_elseif:
@@ -62,7 +62,7 @@ case_elseif:
     blt end
     beq end
     sub r6, r2, r4
-    mul r6, r6, r5
+    mul r6, r5, r6
     add r0,r0,r6
 end:
     mov r1, r0
