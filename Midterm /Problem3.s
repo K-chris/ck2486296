@@ -1,7 +1,7 @@
 .data
 
 message1: .asciz " enetr in what term of the fibonacci sequence you want outputed  "
-format: .asciz "%d "
+format: .asciz "%d"
 message2: .asciz " the %d term of the fibonacci is %d "
 .text
 
@@ -12,11 +12,9 @@ main:
     ldr r0, address_of_message1
     bl printf
     ldr r0, address_of_format
-    mov r2, sp
-    add r1, r2,#4
+    mov r1, sp
     bl scanf
-    add r1, sp, #4
-    ldr r1, [r1]
+    ldr r1, [sp]
     mov r2, r1
     mov r3, #0
     mov r4, #1
