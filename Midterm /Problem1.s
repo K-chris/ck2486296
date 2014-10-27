@@ -59,7 +59,7 @@ case_trppay:
     add r3, r3, r6
     mul r6, r5,r2
     add r3, r3, r6
-
+    b end:
 end:
     mov r1,r3
     ldr r0, address_of_message3
@@ -70,7 +70,5 @@ end:
 
 address_of_message1: .word message1
 address_of_message2: .word message2
-
 address_of_message3: .word message3
-
 address_of_format: .word format
