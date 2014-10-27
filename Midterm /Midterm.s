@@ -12,14 +12,14 @@ choice:
     ldr r0, address_of_message1
     bl printf
     ldr r0, address_of_format
-    mov r0, sp
+    mov r1, sp
     bl scanf
-    ldr r0, [sp]
-    cmp r0,#1
+    ldr r1, [sp]
+    cmp r1,#1
     beq Prog1
-    cmp r0,#2
+    cmp r1,#2
     beq Prog2
-    cmp r0,#3
+    cmp r1,#3
     beq Prog3
 end:
     add sp, sp, #+8
