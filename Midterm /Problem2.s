@@ -5,8 +5,8 @@ message2: .asciz " how many hours did you used: \n a)30 dollars a month for 11 h
 message3: .asciz "the total cost is %d   "
 .text
 
-.global main
-main:
+.global intrn
+intrn:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
     mov r1, #0

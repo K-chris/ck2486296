@@ -29,7 +29,7 @@ Prog1:
     bl paycheck
     bal choice
 Prog2:
-    bl internet
+    bl intrn
     bal choice
 Prog3:
     bl fibonacci
