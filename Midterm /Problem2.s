@@ -1,11 +1,12 @@
 .data
 message1: .asciz "Enter in what package you have and"
-internetform: .asciz "%C %d"
+internetform: .asciz "%c %d"
 message2: .asciz " how many hours did you used: \n a)30 dollars a month for 11 hours access \n b)35 dollars a month for 22 hours access \n c)40 dollars a month for 33 hours access \n"
 message3: .asciz "the total cost is %d   "
 .text
 
 .global intrn
+.global scanf
 intrn:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
