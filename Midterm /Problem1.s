@@ -1,8 +1,10 @@
 .data
+
 message1: .asciz "enter in the hours you have worked and then the pay rate  "
 format: .asciz "%d %d"
 message2: .asciz "You cannot work more than 60 hours, try again  "
 message3: .asciz "your gross pay is $%d   "
+
 .text
 
 .global main
