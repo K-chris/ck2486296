@@ -6,7 +6,6 @@ message3: .asciz "the total cost is %d   "
 .text
 
 .global intrn
-.global scanf
 intrn:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
