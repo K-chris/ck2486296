@@ -1,6 +1,6 @@
 .data
 message1: .asciz "Enter in what package you have and"
-internetform: .asciz "%d %c"
+internetform: .asciz "%c %d"
 message2: .asciz " how many hours did you used: \n a)30 dollars a month for 11 hours access \n b)35 dollars a month for 22 hours access \n c)40 dollars a month for 33 hours access"
 message3: .asciz "the total cost is %d   "
 .text
@@ -20,8 +20,8 @@ intrn:
         add r1, r2,#4
     bl scanf
         add r1, sp, #4
-    ldr r2, [r1]           @r1 = users package a,b,or c
-    ldr r1, [sp]           @r2 = users hours
+    ldr r1, [r1]           @r1 = users package a,b,or c
+    ldr r2, [sp]           @r2 = users hours
     cmp r1, #97
     beq case_package
     cmp r1, #98
