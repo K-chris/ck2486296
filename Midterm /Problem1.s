@@ -39,7 +39,6 @@ case_notlegal:
 case_regpay:
     mul r3,r1,r2
     b end
-end:
 
 case_dblpay:
     mov r4, #2
@@ -48,10 +47,20 @@ case_dblpay:
     mul r3,r1,r4
     mul r5,r2,r5
     add r3,r3,r5
-
+    b end
 
 case_trppay:
+    mov r4, #3
+    mul r4,r4,r2
+    sub r1,r1,#40
+    mul r3,r1,r4
+    mov r6,#2
+    mul r6,r6,r5
+    add r3, r3, r6
+    mul r6, r5,r2
+    add r3, r3, r6
 
+end:
     mov r1,r3
     ldr r0, address_of_message3
     bl printf
