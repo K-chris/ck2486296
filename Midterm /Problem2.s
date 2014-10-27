@@ -9,7 +9,8 @@ message3: .asciz "the total cost is %d   "
 internet:
     str lr, [sp,#-8]!
 	sub sp, sp, #8
-
+    mov r1, #0
+    mov r2, #0
     ldr r0, address_of_message1
     bl printf
     ldr r0, address_of_message2
