@@ -36,7 +36,7 @@ case_notlegal:
     bl printf
     b input
 
-,case_regpay:
+case_regpay:
     mul r3,r1,r2
     b end
 end:
