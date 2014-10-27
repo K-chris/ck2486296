@@ -21,20 +21,36 @@ main:
     add r1, sp, #4
     ldr r1, [r1]           @r1 = users hours
     ldr r2, [sp]           @r2 = users rate of pay
+    mov r5, #20
     cmp r1, #60
     bgt case_notlegal
     cmp r1, #20
     ble case_regpay
+        cmp r1, #40
+    ble case_dblpay
+    bgt case_trppay
+
 case_notlegal:
 
     ldr r0, address_of_message2
     bl printf
     b input
 
-case_regpay:
+,case_regpay:
     mul r3,r1,r2
     b end
 end:
+
+case_dblpay:
+    mov r4, #2
+    mul r4,r4,r2
+    sub r1,r1,r5
+    mul r3,r1,r4
+    mul r5,r2,r5
+    add r3,r3,r5
+
+
+case_trppay:
 
     mov r1,r3
     ldr r0, address_of_message3
