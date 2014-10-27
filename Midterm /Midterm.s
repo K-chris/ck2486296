@@ -1,6 +1,6 @@
 .data
 
-message1: .asciz "enter in what problem you want to go to \n 1) Paycheck Cal \n 2) ISP Bill Cal \n 3) Fibonacci Cal"
+message1: .asciz "enter in what problem you want to go to \n 1) Paycheck Cal \n 2) ISP Bill Cal \n 3) Fibonacci Cal \n"
 format: .asciz "%d"
 .text
 
